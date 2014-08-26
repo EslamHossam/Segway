@@ -1,0 +1,7 @@
+ioio.lib.api
+ioio.lib.api.exception
+ioio.lib.impl
+ioio.lib.pc
+ioio.lib.spi
+ioio.lib.util
+ioio.lib.util.pc
