@@ -15,10 +15,12 @@ import ioio.lib.util.BaseIOIOLooper;
 class Looper extends BaseIOIOLooper {
 	MainActivity mainActivity;
 //	DigitalOutput led;
-	DigitalOutput pin1;
-	DigitalOutput pin2;
-//	PwmOutput pin3;
-//	PwmOutput pin4;
+	DigitalOutput pin5;
+	DigitalOutput pin6;
+//	PwmOutput pin5;
+//	PwmOutput pin6;
+	int i;
+	PwmOutput pin7;
 	
 	public Looper(MainActivity mainActivity) {
 		this.mainActivity = mainActivity;
@@ -32,11 +34,11 @@ class Looper extends BaseIOIOLooper {
 	 */
 	protected void setup() throws ConnectionLostException {
 //		led = ioio_.openDigitalOutput(0, true);
-		pin1 = ioio_.openDigitalOutput(5);
-		pin2 = ioio_.openDigitalOutput(6);
-//		pin3 = ioio_.openPwmOutput(5, 50);
-//		pin4 = ioio_.openPwmOutput
-//				(6, 50);
+		pin5 = ioio_.openDigitalOutput(5);
+		pin6 = ioio_.openDigitalOutput(6);
+//		pin5 = ioio_.openPwmOutput(5, 50);
+//		pin6 = ioio_.openPwmOutput(6, 50);
+		pin7 = ioio_.openPwmOutput(7, 100);
 	}
 
 	/**
@@ -53,27 +55,63 @@ class Looper extends BaseIOIOLooper {
 //			Thread.sleep(100);
 //		} catch (InterruptedException e) {
 //		}
-		try {
-			pin1.write(true);
-			pin2.write(false);
-			Thread.sleep(3000);
-			
-			pin1.write(false);
-			pin2.write(true);
-			Thread.sleep(3000);
-			
-		} catch (Exception e) {
-		}
 //		try {
-//			pin3.setDutyCycle(100);
-//			pin4.setDutyCycle(0);
+//			pin1.write(true);
+//			pin2.write(false);
 //			Thread.sleep(3000);
-//			pin3.setDutyCycle(0);
-//			pin4.setDutyCycle(100);
+//			
+//			pin1.write(false);
+//			pin2.write(true);
+//			Thread.sleep(3000);
+//			
+//		} catch (Exception e) {
+//		}
+		
+// code to turn clockwise and anti-clockwise each 3 seconds
+//		try {
+//			pin5.setDutyCycle((float) 0.8);
+//			pin6.setDutyCycle(0);
+//			Thread.sleep(3000);
+//			pin5.setDutyCycle(0);
+//			pin6.setDutyCycle(1024);
 //			Thread.sleep(3000);
 //		} catch (Exception e) {
 //		}
-	}
 		
-		
+//		try {
+//			for(float i = 0.3f; i <= 1f; i += 0.1f){
+//				Thread.sleep(1000);
+//				for(int j = 0 ; j < 1000000000 ; j++){
+//				pin5.setDutyCycle(i);				
+//				pin6.setDutyCycle(0);
+//				}
+//				for(int j = 0 ; j < 1000000000 ; j++){
+//				pin5.setDutyCycle(0);				
+//				pin6.setDutyCycle(0);
+//				}
+//			}
+//		
+//		} catch (Exception e) {
+//		}
+		for(i=0.8;)
+		pin7.setDutyCycle((float) 0.8);
+		pin5.write(true);
+		pin6.write(false);
+		try{
+			Thread.sleep(10);
+		}catch(InterruptedException e){
+			
+		}
+	
+//	for (int j =100000;j>=50000; j-=10000){
+//			try {
+//				pin5.setPulseWidth(j);
+//				Thread.sleep(3000);
+//			} catch (InterruptedException e) {
+//			}
+//	}
 }
+}
+
+		
+		

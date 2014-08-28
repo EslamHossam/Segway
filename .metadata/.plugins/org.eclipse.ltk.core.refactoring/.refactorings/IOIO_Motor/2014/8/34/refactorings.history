@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Looper.java&apos; to &apos;IOIO_Motor2/src/com.example.ioio_motor2&apos;&#x0A;- Original project: &apos;IOIO_Motor&apos;&#x0A;- Destination element: &apos;IOIO_Motor2/src/com.example.ioio_motor2&apos;&#x0A;- Original element: &apos;Looper.java&apos;" description="Copy compilation unit" destination="=IOIO_Motor2/src&lt;com.example.ioio_motor2" element1="/src&lt;{Looper.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1408463724985" units="1" version="1.0"/>
+</session>

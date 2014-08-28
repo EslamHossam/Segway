@@ -1,0 +1,16 @@
+
+**** Build of configuration Debug for project HelloCpp ****
+
+make all 
+Building file: ../src/HelloCpp.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/HelloCpp.d" -MT"src/HelloCpp.d" -o "src/HelloCpp.o" "../src/HelloCpp.cpp"
+Finished building: ../src/HelloCpp.cpp
+ 
+Building target: HelloCpp
+Invoking: GCC C++ Linker
+g++  -o "HelloCpp"  ./src/HelloCpp.o   
+Finished building target: HelloCpp
+ 
+
+**** Build Finished ****

@@ -1,0 +1,104 @@
+package com.example.accelerometer1;
+
+import android.app.Activity; 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+
+public class MainActivity extends Activity implements SensorEventListener{
+
+	// my needs are:
+	// a acceleromter sensor
+	// - b Sensor manager
+	// -- c Activity
+
+	// listener to receive the events
+
+	SensorManager sensorManager;
+	Sensor accelerometer;
+	Sensor gyro;
+	
+	int counter;
+	
+	
+	
+	
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		initSensors();
+	}
+
+	private void initSensors() {
+		System.out.println("hello");
+		counter = 0;
+		
+		// get the sensorManager object
+		sensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
+		
+		// get the default accelerometer from the sensorManager
+		accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		gyro = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+		
+		// connect 		the event-consumer (activity / this) 
+		// with 		the event-provider (the sensor)
+//		sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+		sensorManager.registerListener(this, gyro, SensorManager.SENSOR_DELAY_NORMAL);
+		
+		
+	}
+	
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		
+		counter++;
+		if(counter==200)
+			sensorManager.unregisterListener(this);
+		
+		// index 0 for X axis
+		// index 1 for Y axis
+		
+		if(event.sensor == gyro)
+		{
+			System.out.println("G " + event.values[0] + " , " + (event.values[1]+0.2));
+		}
+		if(event.sensor == accelerometer)
+		{
+			System.out.println("A " + event.values[0] + " , " + (event.values[1]+0.2));
+		}
+		
+		System.out.println(event.timestamp);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//===================================================
+
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+
+}
